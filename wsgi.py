@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# #### Week 5 - Deploy
+# #### Week 3 - Functions
 
-# In[ ]:
+# In[1]:
 
 
 # Import Library default with python installation
@@ -11,7 +11,7 @@ import os
 import sys
 
 
-# In[ ]:
+# In[3]:
 
 
 def my_main(input_filename):
@@ -60,7 +60,7 @@ def my_main(input_filename):
     # Mode read 
     # File Handle is the File descriptor - path , mode, name 
     try:
-        input_file_obj = open(os.path.join(application.config['UPLOAD_FOLDER'],input_filename),'r')
+        input_file_obj = open(os.path.join(application.config['UPLOAD_FOLDER'],input_filename),'r',encoding="UTF-8")
         print('*** INFO***',input_filename,' Input file opened successfully')
     except:
         print('*** ERROR***',input_filename,' Input file CANNOT OPEN')
@@ -233,18 +233,18 @@ def my_main(input_filename):
     return(totlinecount, totwordcount, totcharcount,output_list,"")
 
 
-# In[ ]:
+# In[4]:
 
 
 # # Main Program for Standalone App
-# # If __name__ = __main__ ,program is running standalone
 # if __name__ == "__main__":
 #     print("Python script is run standalone\n")
+#     print("Python special variable __name__ =", __name__)
         
 # #   Get the name from the user
 #     name = input()   
 
-# #   Call fx Main program
+# #   Call fx my_main
 #     tlc, twc, tcc, output_list = my_main(name)
 
 #     print(tlc)
@@ -254,13 +254,14 @@ def my_main(input_filename):
 
 # else:
 #     # __name__ will have the name of the module that imported this script
-#     print("Python script was imported")     
+#     print("Python script was imported") 
+#     print("Python special variable __name__ =", __name__)
 # #End Main program
 
 
 # #### Week 4 - Flask
 
-# In[ ]:
+# In[5]:
 
 
 # Import libraries
@@ -270,14 +271,14 @@ from flask import render_template
 from flask import request
 
 
-# In[ ]:
+# In[6]:
 
 
 # Import werkzeug to run your app as a web application
 # from werkzeug.serving import run_simple
 
 
-# In[ ]:
+# In[7]:
 
 
 # Create input file folder
@@ -288,7 +289,7 @@ if not os.path.exists(upload_folder_path):
     os.mkdir(upload_folder_path)
 
 
-# In[ ]:
+# In[8]:
 
 
 # Instantiate the Flask object 
@@ -296,13 +297,13 @@ application = Flask(__name__)
 print('Flask object Instantiated')
 
 
-# In[ ]:
+# In[9]:
 
 
 application.config['UPLOAD_FOLDER'] = upload_folder_path
 
 
-# In[ ]:
+# In[10]:
 
 
 # home displays the selectform.html
@@ -312,7 +313,7 @@ def home():
 # end of function
 
 
-# In[ ]:
+# In[11]:
 
 
 # submit on the selectform.html will conduct the audit
@@ -353,7 +354,7 @@ if __name__ == "__main__":
        
      # Run the flask app in jupyter noetbook needs run_simple 
      # Run the flask app in python script needs app.run
-#     run_simple('localhost',5000, app, use_debugger=True)
+#     run_simple('localhost',8084, app, use_debugger=True)
     application.run('0.0.0.0')
 
      
